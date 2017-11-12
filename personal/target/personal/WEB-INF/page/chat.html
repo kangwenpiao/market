@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>chat.html</title>
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="${base}/js/layui/css/layui.css"/>
+    <script type="text/javascript" src="${base}/js/jquery.min.js"></script>
+    <script type="text/javascript" src="${base}/js/layui/layui.js"></script>
+    <style type="text/css">
+    	h3{font-size: 20px;}
+    	body{font-size: 16px;}
+    	ul,#demo{margin:0 0 0 20px;}
+    	span{color: red; opacity:0.8}
+    </style>
+  </head>
+  <body>
+  		<h3>留言列表</h3>
+    	<div>
+   	    	<ul id="chat">
+   				
+   			</ul>
+    	</div>
+    <div id="demo"></div>
+    <script type="text/javascript">
+    layui.use(['laypage', 'layer'], function(){
+    	  var laypage = layui.laypage
+    	  ,layer = layui.layer;
+    	  
+    	  //总页数大于页码总数
+    	  laypage.render({
+    	     elem: 'demo'
+    	    ,count: ${page}0 //数据总数
+    	    ,jump: function(obj,first){
+				$.ajax({
+					url:"${base}/admin/getpagelist.do",
+					data:{page:obj.curr},
+					type:"post",
+					dataType:"json",
+					success:function(data){
+						var array = data.rows;
+						var content = "";
+					    for(var i in array){
+					    	content += "<li>留言时间："+array[i].createtime+"<br/><span>留言内容：</span>"+array[i].content+"</li>";
+					    }
+					    $('#chat').html(content);
+					}
+				});	
+    	     }
+    	  });
+    });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+                           http://www.springframework.org/schema/tx
+                           http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+                           http://www.springframework.org/schema/aop
+                           http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+    <!-- 引入jdbc配置文件 -->    
+<!--      <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">       -->
+<!--           <property name="locations">     -->
+<!--               <list>       -->
+<!--                  <value>classpath*:config/*.properties</value>      -->
+<!--               </list>      -->
+<!--           </property>      -->
+<!--       </bean>     -->
+    <!-- 情况是本机调试正常，项目发布到linux服务器就报这个异常了。
+原因是xml文件的dataSource没有加载c3p0.properties里面的参数，直接写死就正常了。 -->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"         
+            destroy-method="close">        
+        <property name="driverClass" value="com.mysql.jdbc.Driver"/>        
+        <property name="jdbcUrl" value="jdbc:mysql://119.23.214.229:3306/product?useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect=true"/>        
+        <property name="user" value="root"/>        
+        <property name="password" value="123456"/>
+        <property name="maxPoolSize" value="30"/>        
+        <property name="minPoolSize" value="5"/>        
+<!--         <property name="driverClass" value=" ${jdbc.driverClassName}"/>         -->
+<!--         <property name="jdbcUrl" value="${jdbc.url}"/>         -->
+<!--         <property name="user" value="${jdbc.username}"/>         -->
+<!--         <property name="password" value="${jdbc.password}"/> -->
+<!--         <property name="maxPoolSize" value="${jdbc.maxPoolSize}"/>         -->
+<!--         <property name="minPoolSize" value="${jdbc.minPoolSize}"/>         -->
+    </bean> 
+   <!-- 配置 spring 的 JdbcTemplate -->  
+	<bean id="jdbcTemplate"  
+	    class="org.springframework.jdbc.core.JdbcTemplate">  
+	    <property name="dataSource" ref="dataSource"></property>  
+	</bean>  
+    
+    <context:component-scan base-package="top.kwp8.dao.*,top.kwp8.service.*">   
+ 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />   
+ 	</context:component-scan>   
+ 	
+</beans>

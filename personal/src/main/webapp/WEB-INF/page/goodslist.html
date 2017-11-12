@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>goodslist.html</title>
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="${base}/js/jquery-easyui-1.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="${base}/js/jquery-easyui-1.5.1/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="${base}/js/jquery-easyui-1.5.1/locale/easyui-lang-zh_CN.js"></script>
+    <link rel= "stylesheet" href="${base}/js/jquery-easyui-1.5.1/themes/default/easyui.css"/>
+    <link rel= "stylesheet" href="${base}/js/jquery-easyui-1.5.1/themes/icon.css"/>
+  </head>
+  <body>
+  	<h3>商品列表页</h3>
+    <a href="javascript:location.href='${base}/admin/addgoods.do'">增加商品</a>
+    <a href="javascript:location.href='${base}/admin/chatpage.do'">留言列表</a>
+    <hr/>
+    <input type="text" name="name"/><input type="button" value="搜索" id="selectgoods"/>
+    <table id="dg" style="width: 700px;height: 600px;float: left;"></table>
+    <script type="text/javascript">
+    $(function(){
+    	$('#dg').datagrid({
+            url:'${base}/admin/goodslist.do',
+            pageNumber:1,
+            pageList:[5,10,20,30],
+            pageSize:5,
+            pagination:true,
+            fitColumns:true,
+            idField :"id",
+            sortName:"price",
+            sortOrder:"desc",
+            rownumbers:true,
+            columns:[[
+        		{field:'id',title:'编号',width:40,hidden:true},
+        		{field:'goodsName',title:'商品名称',width:100,sortable:true},
+        		{field:'price',title:'商品价格',width:80,align:'right',sortable:true},
+        		{field:'img',title:'商品图片',width:200,align:'center',formatter:showImg},
+        		{field:'marketprice',title:'专柜价',width:80,align:'right'},
+        		{field:'salecount',title:'虚拟销售量',width:80,align:'right'},
+        		{field:'status',title:'状态',width:80,align:'right',formatter:statusName},
+        		{field:'op',title:'操作',width:100,align:'center',formatter:op}
+            ]]
+        });
+    	$('#selectgoods').bind('click',function(){
+    		var name = $('input[name=name]').val();
+    		$('#dg').datagrid('load',{
+    			name: name
+    		});
+    	});
+    	$('input').keyup(function(e){
+    		if(e.keyCode == 13){
+    			var name = $('input[name=name]').val();
+        		$('#dg').datagrid('load',{
+        			name: name
+        		});
+    		}
+    	});
+    });
+    function showImg(value,row,index){
+    	return "<img src='"+value+"' alt='商品图片' width='100' height='100'/>";
+    }
+    function statusName(value,row,index){
+		  if(value ==0 ){
+			  return "正常";
+		  }else if(value == 1){
+			  return "热销";
+		  }else if(value == 2){
+			  return "售罄"
+		  }else{
+			  return "状态不正确";
+		  }  	
+    }
+    function op(value,row,index){
+    	return '<a href="javascript:edit('+row.id+')">编辑</a>&nbsp;|&nbsp;<a href="javascript:del('+row.id+')">删除</a>';
+    }
+    function edit(id){
+    	location.href="${base}/admin/editgoodspage.do?goodsid="+id;
+    }
+    function del(id){
+    	$.messager.confirm('是否删除商品',"确认删除吗？",function(r){
+    	    if (r){
+    	    	$.ajax({
+    	    		url:"${base}/admin/deletegoods.do",
+    	    		type:"post",
+    	    		dataType:"json",
+    	    		data:{goodsid:id},
+    	    		success:function(data){
+    	    			$.messager.alert('提示',data.message,'info',function(){
+	    	    			$('#dg').datagrid("reload");
+    	    			});
+    	    		}
+    	    	});
+    	    }
+    	});
+    }
+    </script>
+  </body>
+</html>
