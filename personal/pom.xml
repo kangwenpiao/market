@@ -2,10 +2,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>top8.kwp</groupId>
-	<artifactId>personal</artifactId>
+	<artifactId>market</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>personal</name>
+	<name>market</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
 	<dependency>
@@ -169,7 +169,7 @@
 		</dependency>
 	</dependencies>
 	<build>
-		<finalName>personal</finalName>
+		<finalName>market</finalName>
 		<plugins>
 			<!-- 编码和编译和JDK版本 -->
 			<plugin>
