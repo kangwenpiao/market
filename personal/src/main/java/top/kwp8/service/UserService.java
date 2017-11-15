@@ -4,5 +4,5 @@ import top.kwp8.entity.User;
 
 public interface UserService {
 
-	boolean selectUser(User user);
+	User selectUser(User user);
 }

@@ -4,5 +4,5 @@ import top.kwp8.entity.User;
 
 public interface UserDao {
 
-	int select(String sql,User user);
+	User select(String sql,User user);
 }

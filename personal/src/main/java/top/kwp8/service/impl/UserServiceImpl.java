@@ -12,9 +12,9 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserDao userDao;
 	@Override
-	public boolean selectUser(User user) {
+	public User selectUser(User user) {
 		String sql = "select count(*) from user u where u.mobile = ? and u.password = ?";
-		return userDao.select(sql, user) > 0;
+		return userDao.select(sql, user);
 	}
 
 }

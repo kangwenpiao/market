@@ -14,8 +14,8 @@ public class UserDaoImpl extends JdbcDaoSupport implements UserDao {
 		setJdbcTemplate(jdbcTemplate);
 	}
 	@Override
-	public int select(String sql, User user) {
-		return this.getJdbcTemplate().update(sql, user.getMobile(),user.getPassword());
+	public User select(String sql, User user) {
+		return this.getJdbcTemplate().queryForObject(sql, User.class,user.getMobile(),user.getPassword());
 	}
 
 }
