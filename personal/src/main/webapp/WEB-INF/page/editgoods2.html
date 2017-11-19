@@ -2,32 +2,35 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<script type="text/javascript" src="${base}/js/jquery-easyui-1.5.1/jquery.min.js"></script>
+	<script type="text/javascript" src="${base}/js/jquery.validate.js"></script>
+    <script type="text/javascript" src="${base}/js/messages_zh.js"></script>
 	<h3>商品编辑页面</h3>
 </head>
 <body>
-	<h3>商品编辑页面</h3>
 	<ul>
 	<form action="${base}/admin/editgoods.do" method="post" enctype="multipart/form-data">
-		<li>商品名称：<input type="text" name="goodsName" value="${goods.goodsName!}"></li>
-		<li>销售价格：<input type="text" name="price" value="${goods.price!}"></li>
-		<li>商品规格：<input type="text" name="specifications" value="${goods.specifications!}"></li>
-		<li>商品图片：<input type="file" name="file"></li>
+		<li>商品名称：<input type="text" name="goodsName" value="${goods.goodsName!}" required /></li>
+		<li>销售价格：<input type="text" name="price" value="${goods.price!}" required /></li>
+		<li>商品规格：<input type="text" name="specifications" value="${goods.specifications!}" required /></li>
+		<li>商品图片：<input type="file" name="file"/></li>
 		<li><img src="${goods.img}" alt="商品图片" width="150" height="150"/></li>
-		<input type="hidden" name="id" value="${goods.id!}">
-		<li>生产地：<input type="text" name="produceAddress" value="香港"/></li>
-		<li>市场价：<input type="text" name="marketprice" value="${goods.marketprice!}"/></li>
-		<li>销售量：<input type="text" name="salecount" value="${goods.salecount!}"/></li> 
-		<li>状态：<select name="status">
+		<input type="hidden" name="id" value="${goods.id!}"/>
+		<li>生产地：<input type="text" name="produceAddress" value="香港" required/></li>
+		<li>市场价：<input type="text" name="marketprice" value="${goods.marketprice!}" required/></li>
+		<li>销售量：<input type="text" name="salecount" value="${goods.salecount!}" required/></li> 
+		<li>状态：<select name="status" required>
 				<option value="0"  <#if goods.status == 0>selected</#if> >正常</option>
-				<option value="1"  <#if goods.status == 0>selected</#if> >热销</option>
-				<option value="2"  <#if goods.status == 0>selected</#if> >售罄</option>
+				<option value="1"  <#if goods.status == 1>selected</#if> >热销</option>
+				<option value="2"  <#if goods.status == 2>selected</#if> >售罄</option>
 			</select></li> 
-		<li>预定人数：<input type="text" name="reserveCount" value="${goods.reserveCount!}" /></li>
+		<li>预定人数：<input type="text" name="reserveCount" value="${goods.reserveCount!}" required/></li>
 		<li>商品描述：
 			<div>
-				<textarea id="editor_id" name="content" style="width:700px;height:300px;">
+				<textarea id="editor_id" name="content" style="width:700px;height:300px;" required>
 				${goods.content!}
 				</textarea>
+				<textarea rows="" cols="" required name="aa"></textarea>
 			</div>
 		</li>
 	<li><input type="submit" value="提交" /></li>

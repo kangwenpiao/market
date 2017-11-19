@@ -2,7 +2,6 @@ package top.kwp8.dao.impl;
 
 import java.util.List;
 
-import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -13,7 +12,7 @@ import top.kwp8.dao.BaseDao;
 @Repository
 public class BaseDaoImpl<T> implements BaseDao<T> {
 	@Autowired
-	private JdbcTemplate jdbcTemplate;
+	public JdbcTemplate jdbcTemplate;
 	
 	@Override
 	public void save(String sql,Object...objects) {

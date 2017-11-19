@@ -3,25 +3,28 @@
 <head>
 	<meta charset="UTF-8">
 	<title>商品增加页面</title>
+	<script type="text/javascript" src="${base}/js/jquery-easyui-1.5.1/jquery.min.js"></script>
+	<script type="text/javascript" src="${base}/js/jquery.validate.js"></script>
+    <script type="text/javascript" src="${base}/js/messages_zh.js"></script>
 </head>
 <body>
 	<ul>
 	<h3>商品增加页面</h3>
 	<form action="${base}/admin/savegoods.do" method="post" enctype="multipart/form-data">
-		<li>商品名称：<input type="text" name="goodsName"></li>
-		<li>销售价格：<input type="text" name="price"></li>
-		<li>商品规格：<input type="text" name="specifications"></li>
-		<li>商品图片：<input type="file" name="file"></li>
+		<li>商品名称：<input type="text" name="goodsName" required/></li>
+		<li>销售价格：<input type="text" name="price" required/></li>
+		<li>商品规格：<input type="text" name="specifications" required/></li>
+		<li>商品图片：<input type="file" name="file" required/></li>
 		<img src="" width="150" height="150" style="display:none;"/>
-		<li>生产地：<input type="text" name="produceAddress" value="香港"></li>
-		<li>市场价：<input type="text" name="marketprice"></li>
-		<li>销售量：<input type="text" name="salecount"/></li> 
+		<li>生产地：<input type="text" name="produceAddress" value="香港" required/></li>
+		<li>市场价：<input type="text" name="marketprice" required/></li>
+		<li>销售量：<input type="text" name="salecount" required/></li> 
 		<li>状态：<select name="status">
 				<option value="0">正常</option>
 				<option value="1">热销</option>
 				<option value="2">售罄</option>
 			</select></li> 
-		<li>预定人数：<input type="text" name="reserveCount"/></li>
+		<li>预定人数：<input type="text" name="reserveCount" required/></li>
 		<li>商品描述：
 			<div>
 				<textarea id="editor_id" name="content" style="width:700px;height:300px;">

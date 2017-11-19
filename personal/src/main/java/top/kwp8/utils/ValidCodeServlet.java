@@ -25,7 +25,6 @@ import javax.servlet.http.HttpServletResponse;
 public class ValidCodeServlet extends HttpServlet {
 	
 	public static final String SESSION_VALID_CODE ="valid_code";
-	
 	private Random generator = new Random();
 
 	private static char[] captchars = new char[] { 'a', 'b', 'c', 'd', 'e',
@@ -98,8 +97,7 @@ public class ValidCodeServlet extends HttpServlet {
 		 * 放放Session
 		 */
  
-		
-		req.getSession().setAttribute(SESSION_VALID_CODE+vtype,test);
+		req.getSession().setAttribute(ValidCodeServlet.SESSION_VALID_CODE,test);
 		
 		/**
 		 * 得到输出流

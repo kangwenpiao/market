@@ -1,30 +1,43 @@
-F:\MyEclipse Professional 2014\personal\src\main\java\top\kwp8\dao\impl\GoodsDaoImpl.java
-F:\MyEclipse Professional 2014\personal\src\main\java\top\kwp8\controller\mobile\MobileAppController.java
-F:\MyEclipse Professional 2014\personal\src\main\java\top\kwp8\utils\JsonResult.java
-F:\MyEclipse Professional 2014\personal\src\main\java\top\kwp8\dao\UserDao.java
-F:\MyEclipse Professional 2014\personal\src\main\java\top\kwp8\utils\OutPrint.java
-F:\MyEclipse Professional 2014\personal\src\main\java\top\kwp8\dao\BaseDao.java
-F:\MyEclipse Professional 2014\personal\src\main\java\top\kwp8\controller\mobile\MobileGoodsController.java
-F:\MyEclipse Professional 2014\personal\src\main\java\top\kwp8\controller\mobile\MobileChatController.java
-F:\MyEclipse Professional 2014\personal\src\main\java\top\kwp8\dao\impl\ChatDaoImpl.java
-F:\MyEclipse Professional 2014\personal\src\main\java\top\kwp8\service\ChatService.java
-F:\MyEclipse Professional 2014\personal\src\main\java\top\kwp8\controller\admin\LoginController.java
-F:\MyEclipse Professional 2014\personal\src\main\java\top\kwp8\dao\impl\BaseDaoImpl.java
-F:\MyEclipse Professional 2014\personal\src\main\java\top\kwp8\controller\admin\GoodsController.java
-F:\MyEclipse Professional 2014\personal\src\main\java\top\kwp8\entity\Chat.java
-F:\MyEclipse Professional 2014\personal\src\main\java\top\kwp8\utils\WXUtils.java
-F:\MyEclipse Professional 2014\personal\src\main\java\top\kwp8\controller\admin\ChatController.java
-F:\MyEclipse Professional 2014\personal\src\main\java\top\kwp8\entity\Goods.java
-F:\MyEclipse Professional 2014\personal\src\main\java\top\kwp8\service\impl\ChatServiceImpl.java
-F:\MyEclipse Professional 2014\personal\src\main\java\top\kwp8\utils\Utils.java
-F:\MyEclipse Professional 2014\personal\src\main\java\top\kwp8\utils\ValidCodeServlet.java
-F:\MyEclipse Professional 2014\personal\src\main\java\top\kwp8\dao\ChatDao.java
-F:\MyEclipse Professional 2014\personal\src\main\java\top\kwp8\service\impl\GoodsServiceImpl.java
-F:\MyEclipse Professional 2014\personal\src\main\java\top\kwp8\utils\Page.java
-F:\MyEclipse Professional 2014\personal\src\main\java\top\kwp8\utils\InitServletContext.java
-F:\MyEclipse Professional 2014\personal\src\main\java\top\kwp8\service\GoodsService.java
-F:\MyEclipse Professional 2014\personal\src\main\java\top\kwp8\entity\User.java
-F:\MyEclipse Professional 2014\personal\src\main\java\top\kwp8\entity\view\GoodsView.java
-F:\MyEclipse Professional 2014\personal\src\main\java\top\kwp8\entity\view\ChatView.java
-F:\MyEclipse Professional 2014\personal\src\main\java\top\kwp8\dao\GoodsDao.java
-F:\MyEclipse Professional 2014\personal\src\main\java\top\kwp8\utils\Grid.java
+F:\kangmarket\market\personal\src\main\java\top\kwp8\entity\admin\Admin.java
+F:\kangmarket\market\personal\src\main\java\top\kwp8\utils\JsonResult.java
+F:\kangmarket\market\personal\src\main\java\top\kwp8\dao\impl\AdminDaoImpl.java
+F:\kangmarket\market\personal\src\main\java\top\kwp8\dao\impl\ChatDaoImpl.java
+F:\kangmarket\market\personal\src\main\java\top\kwp8\service\impl\AdminServiceImpl.java
+F:\kangmarket\market\personal\src\main\java\top\kwp8\utils\WXUtils.java
+F:\kangmarket\market\personal\src\main\java\top\kwp8\utils\ValidCodeServlet.java
+F:\kangmarket\market\personal\src\main\java\top\kwp8\dao\GoodsDao.java
+F:\kangmarket\market\personal\src\main\java\top\kwp8\dao\impl\GoodsDaoImpl.java
+F:\kangmarket\market\personal\src\main\java\top\kwp8\entity\view\ChatView.java
+F:\kangmarket\market\personal\src\main\java\top\kwp8\controller\admin\ChatController.java
+F:\kangmarket\market\personal\src\main\java\top\kwp8\dao\AdminDao.java
+F:\kangmarket\market\personal\src\main\java\top\kwp8\service\impl\ChatServiceImpl.java
+F:\kangmarket\market\personal\src\main\java\top\kwp8\dao\ChatDao.java
+F:\kangmarket\market\personal\src\main\java\top\kwp8\utils\Grid.java
+F:\kangmarket\market\personal\src\main\java\top\kwp8\service\GoodsService.java
+F:\kangmarket\market\personal\src\main\java\top\kwp8\entity\view\GoodsView.java
+F:\kangmarket\market\personal\src\main\java\top\kwp8\service\impl\UserServiceImpl.java
+F:\kangmarket\market\personal\src\main\java\top\kwp8\controller\admin\IndexController.java
+F:\kangmarket\market\personal\src\main\java\top\kwp8\controller\mobile\MobileGoodsController.java
+F:\kangmarket\market\personal\src\main\java\top\kwp8\entity\Goods.java
+F:\kangmarket\market\personal\src\main\java\top\kwp8\utils\Page.java
+F:\kangmarket\market\personal\src\main\java\top\kwp8\dao\UserDao.java
+F:\kangmarket\market\personal\src\main\java\top\kwp8\utils\ThreadContextHolder.java
+F:\kangmarket\market\personal\src\main\java\top\kwp8\utils\SaltAwareJdbcRealm.java
+F:\kangmarket\market\personal\src\main\java\top\kwp8\entity\User.java
+F:\kangmarket\market\personal\src\main\java\top\kwp8\controller\mobile\MobileAppController.java
+F:\kangmarket\market\personal\src\main\java\top\kwp8\controller\mobile\MobileChatController.java
+F:\kangmarket\market\personal\src\main\java\top\kwp8\service\UserService.java
+F:\kangmarket\market\personal\src\main\java\top\kwp8\utils\InitServletContext.java
+F:\kangmarket\market\personal\src\main\java\top\kwp8\controller\admin\LoginController.java
+F:\kangmarket\market\personal\src\main\java\top\kwp8\entity\Chat.java
+F:\kangmarket\market\personal\src\main\java\top\kwp8\controller\mobile\MobileUserController.java
+F:\kangmarket\market\personal\src\main\java\top\kwp8\controller\admin\GoodsController.java
+F:\kangmarket\market\personal\src\main\java\top\kwp8\dao\BaseDao.java
+F:\kangmarket\market\personal\src\main\java\top\kwp8\dao\impl\UserDaoImpl.java
+F:\kangmarket\market\personal\src\main\java\top\kwp8\service\AdminService.java
+F:\kangmarket\market\personal\src\main\java\top\kwp8\utils\OutPrint.java
+F:\kangmarket\market\personal\src\main\java\top\kwp8\entity\Address.java
+F:\kangmarket\market\personal\src\main\java\top\kwp8\dao\impl\BaseDaoImpl.java
+F:\kangmarket\market\personal\src\main\java\top\kwp8\utils\Utils.java
+F:\kangmarket\market\personal\src\main\java\top\kwp8\service\impl\GoodsServiceImpl.java
+F:\kangmarket\market\personal\src\main\java\top\kwp8\service\ChatService.java

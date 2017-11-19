@@ -10,15 +10,20 @@
                            http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
                            http://www.springframework.org/schema/context
                            http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+    
+    <context:component-scan base-package="top.kwp8.*">   
+ 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />   
+ 	</context:component-scan>   
 
-    <!-- 引入jdbc配置文件 -->    
-<!--      <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">       -->
-<!--           <property name="locations">     -->
-<!--               <list>       -->
-<!--                  <value>classpath*:config/*.properties</value>      -->
-<!--               </list>      -->
-<!--           </property>      -->
-<!--       </bean>     -->
+    <!-- 引入配置文件 -->    
+     <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">      
+           <property name="locations">     
+               <list>      
+                 <value>classpath*:config/log4j.properties</value>     
+               </list>      
+           </property>     
+       </bean>    
+       
     <!-- 情况是本机调试正常，项目发布到linux服务器就报这个异常了。
 原因是xml文件的dataSource没有加载c3p0.properties里面的参数，直接写死就正常了。 -->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"         
@@ -41,9 +46,71 @@
 	    class="org.springframework.jdbc.core.JdbcTemplate">  
 	    <property name="dataSource" ref="dataSource"></property>  
 	</bean>  
-    
-    <context:component-scan base-package="top.kwp8.dao.*,top.kwp8.service.*">   
- 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />   
- 	</context:component-scan>   
- 	
+	<!-- hibernate配置 -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+        <property name="dataSource" ref="myDataSource"/>
+        <property name="mappingResources">
+            <list>
+                <value>*.hbm.xml</value>
+            </list>
+        </property>
+<!--         <property name="mappingLocations"> -->
+<!--             <list> -->
+<!--                 <value>top.kwp8.entity.*</value> -->
+<!--             </list> -->
+<!--         </property> -->
+        <property name="hibernateProperties">
+            <value>
+                 hibernate.dialect=org.hibernate.dialect.MySQLDialect
+                 hibernate.show_sql=true
+                 hibernate.format_sql=true
+            </value>
+        </property>
+    </bean>
+	<bean id="transactionManager"
+            class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <tx:annotation-driven/>
+	
+	
+    <!-- shiro配置 -->
+ 	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+    <property name="securityManager" ref="securityManager"/>
+    <!-- override these for application-specific URLs if you like:-->
+    <property name="loginUrl" value="/login/loginPage.jhtml"/>
+<!--     <property name="successUrl" value="/home.jsp"/> -->
+<!--     <property name="unauthorizedUrl" value="/unauthorized.jsp"/>  -->
+    <!-- The 'filters' property is not necessary since any declared javax.servlet.Filter bean  -->
+    <!-- defined will be automatically acquired and available via its beanName in chain        -->
+    <!-- definitions, but you can perform instance overrides or name aliases here if you like: -->
+    <!-- <property name="filters">
+        <util:map>
+            <entry key="anAlias" value-ref="someFilter"/>
+        </util:map>
+    </property> -->
+    <property name="filterChainDefinitions">
+        <value>
+            /admin/** = authc
+<!--             /login/** = anon -->
+<!--             /static/** = anon -->
+<!--             /lib/** = anon -->
+<!--             /js/** = anon -->
+            /** = anon
+        </value>
+    </property>
+</bean>
+<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+    <!-- Single realm app.  If you have multiple realms, use the 'realms' property instead. -->
+    <property name="realm" ref="saltAwareJdbcRealm"/>
+    <!-- By default the servlet container sessions will be used.  Uncomment this line
+         to use shiro's native sessions (see the JavaDoc for more): -->
+    <!-- <property name="sessionMode" value="native"/> -->
+</bean>
+<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+
+<!-- Define the Shiro Realm implementation you want to use to connect to your back-end -->
+<!-- security datasource: -->
+<bean id="saltAwareJdbcRealm" class="top.kwp8.utils.SaltAwareJdbcRealm"></bean>
 </beans>

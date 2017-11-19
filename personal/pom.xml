@@ -167,6 +167,33 @@
 			<artifactId>activation</artifactId>
 			<version>1.1</version>
 		</dependency>
+		<dependency>
+  <groupId>org.apache.shiro</groupId>
+  <artifactId>shiro-core</artifactId>
+  <version>1.3.2</version>
+</dependency>
+<dependency>
+  <groupId>org.apache.shiro</groupId>
+  <artifactId>shiro-web</artifactId>
+  <version>1.3.2</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.apache.shiro/shiro-spring -->
+<dependency>
+    <groupId>org.apache.shiro</groupId>
+    <artifactId>shiro-spring</artifactId>
+    <version>1.4.0</version>
+</dependency>
+<dependency>
+   <groupId>org.hibernate</groupId>
+   <artifactId>hibernate-core</artifactId>
+   <version>5.2.12.Final</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.springframework/spring-hibernate -->
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-hibernate</artifactId>
+    <version>1.2.9</version>
+</dependency>
 	</dependencies>
 	<build>
 		<finalName>market</finalName>

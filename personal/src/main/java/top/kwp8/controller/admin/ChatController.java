@@ -37,4 +37,9 @@ public class ChatController {
 		Page<ChatView> page = new Page<>(count, list);
 		OutPrint.outResultResSucGrid(response, page);
 	}
+	@RequestMapping("/delById.do")
+	public void delchat(Integer id,HttpServletResponse response){
+		chatService.delById(id);
+		OutPrint.returnResultSuccess(response, "删除成功");
+	}
 }

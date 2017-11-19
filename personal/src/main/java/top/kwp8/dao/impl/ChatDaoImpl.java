@@ -6,5 +6,5 @@ import top.kwp8.dao.ChatDao;
 import top.kwp8.entity.Chat;
 @Repository
 public class ChatDaoImpl extends BaseDaoImpl<Chat> implements ChatDao {
-	
+
 }

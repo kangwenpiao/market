@@ -15,4 +15,6 @@ public interface ChatService {
 	List<Chat> selectlist();
 	
 	Long getChatCount(Object... objects);
+	
+	void delById(Integer id);
 }

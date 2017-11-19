@@ -47,4 +47,14 @@ public class ChatServiceImpl implements ChatService {
 		String sql  = "select count(*) from chat";
 		return chatDao.selCount(sql, objects);
 	}
+	@Override
+	public void delById(Integer id) {
+		if(id != null){
+			String sql = "delete from chat where id = ?";
+			chatDao.update(sql, id);
+		}else{
+			String sql = "delete from chat";
+			chatDao.update(sql);
+		}
+	}
 }

@@ -1,5 +1,7 @@
 package top.kwp8.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,8 +15,12 @@ public class UserServiceImpl implements UserService {
 	private UserDao userDao;
 	@Override
 	public User selectUser(User user) {
-		String sql = "select count(*) from user u where u.mobile = ? and u.password = ?";
+		String sql = "select * from user u where u.mobile = ? and u.password = ?";
 		return userDao.select(sql, user);
 	}
-
+	@Override
+	public void addUser(List<String> list) {
+		String sql = "insert user(mobile,password,nickname,sex,birthday,headimg) values(?,?,?,?,?,?)";
+		userDao.addUser(sql, list);
+	}
 }
