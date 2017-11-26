@@ -2,8 +2,9 @@ package top.kwp8.dao.impl;
 
 import java.util.List;
 
-import javax.persistence.Query;
 
+
+import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
@@ -30,7 +31,7 @@ public class HibernateDaoImpl<T> extends HibernateDaoSupport implements Hibernat
 
 	@Override
 	public T get(Class<T> cla, Integer id) {
-		return this.getSession().get(cla, id);
+		return (T) this.getSession().get(cla, id);
 	}
 
 	@Override
@@ -55,7 +56,7 @@ public class HibernateDaoImpl<T> extends HibernateDaoSupport implements Hibernat
 				query.setParameter(i, object);
 			}
 		}
-		return query.getResultList();
+		return query.list();
 	}
 
 	@Override
@@ -67,7 +68,7 @@ public class HibernateDaoImpl<T> extends HibernateDaoSupport implements Hibernat
 				query.setParameter(i, object);
 			}
 		}
-		return (Long) query.getSingleResult();
+		return (Long) query.uniqueResult();
 	}
 
 }
