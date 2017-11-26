@@ -3,6 +3,7 @@ package top.kwp8.controller.mobile;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -42,6 +43,14 @@ public class MobileUserController {
 			OutPrint.returnResultFail(response, "请输入图形码");
 			return;
 		}
-		String valid_code = (String) ThreadContextHolder.getHttpSession().getAttribute(ValidCodeServlet.SESSION_VALID_CODE);
+		String valid_code = (String)request.getSession().getAttribute(ValidCodeServlet.SESSION_VALID_CODE);
+		if(!valiCode.equals(valid_code)){
+			OutPrint.returnResultFail(response, "图形码不正确");
+			return;
+		}
+		user.setPassword(DigestUtils.md5Hex(user.getPassword()));
+		user.setSex(User.Gril);
+		user.setHeadimg(Utils.path(request)+"user/defalut_head.jpg");
+		userService.addUser(user);
 	}
 }

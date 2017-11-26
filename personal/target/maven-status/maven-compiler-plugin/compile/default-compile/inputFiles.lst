@@ -1,4 +1,4 @@
-F:\kangmarket\market\personal\src\main\java\top\kwp8\entity\admin\Admin.java
+F:\kangmarket\market\personal\src\main\java\top\kwp8\dao\impl\HibernateDaoImpl.java
 F:\kangmarket\market\personal\src\main\java\top\kwp8\utils\JsonResult.java
 F:\kangmarket\market\personal\src\main\java\top\kwp8\dao\impl\AdminDaoImpl.java
 F:\kangmarket\market\personal\src\main\java\top\kwp8\dao\impl\ChatDaoImpl.java
@@ -7,6 +7,7 @@ F:\kangmarket\market\personal\src\main\java\top\kwp8\utils\WXUtils.java
 F:\kangmarket\market\personal\src\main\java\top\kwp8\utils\ValidCodeServlet.java
 F:\kangmarket\market\personal\src\main\java\top\kwp8\dao\GoodsDao.java
 F:\kangmarket\market\personal\src\main\java\top\kwp8\dao\impl\GoodsDaoImpl.java
+F:\kangmarket\market\personal\src\main\java\top\kwp8\entity\Admin.java
 F:\kangmarket\market\personal\src\main\java\top\kwp8\entity\view\ChatView.java
 F:\kangmarket\market\personal\src\main\java\top\kwp8\controller\admin\ChatController.java
 F:\kangmarket\market\personal\src\main\java\top\kwp8\dao\AdminDao.java
@@ -17,6 +18,7 @@ F:\kangmarket\market\personal\src\main\java\top\kwp8\service\GoodsService.java
 F:\kangmarket\market\personal\src\main\java\top\kwp8\entity\view\GoodsView.java
 F:\kangmarket\market\personal\src\main\java\top\kwp8\service\impl\UserServiceImpl.java
 F:\kangmarket\market\personal\src\main\java\top\kwp8\controller\admin\IndexController.java
+F:\kangmarket\market\personal\src\main\java\top\kwp8\entity\Goodsimg.java
 F:\kangmarket\market\personal\src\main\java\top\kwp8\controller\mobile\MobileGoodsController.java
 F:\kangmarket\market\personal\src\main\java\top\kwp8\entity\Goods.java
 F:\kangmarket\market\personal\src\main\java\top\kwp8\utils\Page.java
@@ -37,7 +39,9 @@ F:\kangmarket\market\personal\src\main\java\top\kwp8\dao\impl\UserDaoImpl.java
 F:\kangmarket\market\personal\src\main\java\top\kwp8\service\AdminService.java
 F:\kangmarket\market\personal\src\main\java\top\kwp8\utils\OutPrint.java
 F:\kangmarket\market\personal\src\main\java\top\kwp8\entity\Address.java
+F:\kangmarket\market\personal\src\main\java\top\kwp8\controller\admin\UserController.java
 F:\kangmarket\market\personal\src\main\java\top\kwp8\dao\impl\BaseDaoImpl.java
+F:\kangmarket\market\personal\src\main\java\top\kwp8\dao\HibernateDaoBase.java
 F:\kangmarket\market\personal\src\main\java\top\kwp8\utils\Utils.java
 F:\kangmarket\market\personal\src\main\java\top\kwp8\service\impl\GoodsServiceImpl.java
 F:\kangmarket\market\personal\src\main\java\top\kwp8\service\ChatService.java

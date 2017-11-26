@@ -19,8 +19,8 @@ public class UserServiceImpl implements UserService {
 		return userDao.select(sql, user);
 	}
 	@Override
-	public void addUser(List<String> list) {
-		String sql = "insert user(mobile,password,nickname,sex,birthday,headimg) values(?,?,?,?,?,?)";
-		userDao.addUser(sql, list);
+	public void addUser(User user) {
+		String sql = "insert user(mobile,password,nickname,sex,headimg) values(?,?,?,?,?)";
+		userDao.addUser(sql, user.getMobile(),user.getPassword(),user.getMobile(),user.getSex(),user.getHeadimg());
 	}
 }

@@ -20,7 +20,7 @@ public class UserDaoImpl extends JdbcDaoSupport implements UserDao {
 		return this.getJdbcTemplate().queryForObject(sql, User.class,user.getMobile(),user.getPassword());
 	}
 	@Override
-	public void addUser(String sql ,List<String> list) {
-		this.getJdbcTemplate().update(sql, list);
+	public void addUser(String sql ,Object...objects) {
+		this.getJdbcTemplate().update(sql, objects);
 	}
 }
